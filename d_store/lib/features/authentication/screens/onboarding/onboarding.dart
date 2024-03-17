@@ -1,15 +1,23 @@
+import 'package:d_store/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:d_store/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:d_store/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:d_store/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
+import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
+import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:d_store/utils/device/device_utility.dart';
+import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(OnBoardingController());
     return Scaffold(
       body: Stack(
         children: [
@@ -35,14 +43,36 @@ class OnBoardingScreen extends StatelessWidget {
           ),
 
           /// skip button
-          OnBoardingSkip(),
+          const OnBoardingSkip(),
 
           /// Dot Navigation
-          Positioned(
-            bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
-            child: SmoothPageIndicator(controller: PageController(), count: 3),
-          )
+          const OnBoardingDotNavigation(),
+
+          /// circular button
+          OnBoardingNextButton(),
         ],
+      ),
+    );
+  }
+}
+
+class OnBoardingNextButton extends StatelessWidget {
+  const OnBoardingNextButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
+    return Positioned(
+      right: TSizes.defaultSpace,
+      bottom: TDeviceUtils.getBottomNavigationBarHeight(),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            backgroundColor: dark ? TColors.primary : Colors.black),
+        child: const Icon(Iconsax.arrow_right3),
       ),
     );
   }
