@@ -1,8 +1,10 @@
 import 'package:d_store/common/styles/spacing_styles.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
+import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -40,7 +42,24 @@ class LoginScreen extends StatelessWidget {
               /// Form
               Form(
                   child: Column(
-                children: [],
+                children: [
+                  /// Email
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Iconsax.direct_right),
+                      labelText: TTexts.email,
+                    ),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputField),
+
+                  /// Pasword
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Iconsax.password_check),
+                      labelText: TTexts.password,
+                    ),
+                  ),
+                ],
               ))
             ],
           ),
