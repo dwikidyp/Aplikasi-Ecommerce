@@ -1,4 +1,5 @@
 import 'package:d_store/common/styles/spacing_styles.dart';
+import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
@@ -41,64 +42,82 @@ class LoginScreen extends StatelessWidget {
 
               /// Form
               Form(
-                  child: Column(
-                children: [
-                  /// Email
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Iconsax.direct_right),
-                      labelText: TTexts.email,
-                    ),
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwInputField),
-
-                  /// Pasword
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Iconsax.password_check),
-                      labelText: TTexts.password,
-                      suffixIcon: Icon(Iconsax.eye_slash),
-                    ),
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwInputField / 2),
-
-                  /// Remember Me & Forgot Password
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Remember Me
-                      Row(
-                        children: [
-                          Checkbox(value: true, onChanged: (Value) {}),
-                          const Text(TTexts.rememberMe),
-                        ],
+                  child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: TSizes.spaceBtwSections),
+                child: Column(
+                  children: [
+                    /// Email
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        prefixIcon: Icon(Iconsax.direct_right),
+                        labelText: TTexts.email,
                       ),
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwInputField),
 
-                      /// Forget Password
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(TTexts.forgetPassword),
+                    /// Pasword
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        prefixIcon: Icon(Iconsax.password_check),
+                        labelText: TTexts.password,
+                        suffixIcon: Icon(Iconsax.eye_slash),
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwInputField / 2),
 
-                  /// Sign In
-                  SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                          onPressed: () {}, child: const Text(TTexts.signIn))),
+                    /// Remember Me & Forgot Password
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        /// Remember Me
+                        Row(
+                          children: [
+                            Checkbox(value: true, onChanged: (Value) {}),
+                            const Text(TTexts.rememberMe),
+                          ],
+                        ),
 
-                  /// Create Account
-                  SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
+                        /// Forget Password
+                        TextButton(
                           onPressed: () {},
-                          child: const Text(TTexts.createAccount))),
+                          child: const Text(TTexts.forgetPassword),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+
+                    /// Sign In
+                    SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text(TTexts.signIn))),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+
+                    /// Create Account
+                    SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                            onPressed: () {},
+                            child: const Text(TTexts.createAccount))),
+                    const SizedBox(height: TSizes.spaceBtwItems),
+                  ],
+                ),
+              )),
+
+              /// Divider
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Divider(
+                    color: dark ? TColors.darkGrey : TColors.grey,
+                    thickness: 0.5,
+                  )
                 ],
-              ))
+              )
             ],
           ),
         ),
