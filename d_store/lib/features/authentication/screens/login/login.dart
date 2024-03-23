@@ -64,6 +64,7 @@ class LoginScreen extends StatelessWidget {
 
                   /// Remember Me & Forgot Password
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       /// Remember Me
                       Row(
@@ -83,6 +84,19 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
+
+                  /// Sign In
+                  SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {}, child: const Text(TTexts.signIn))),
+
+                  /// Create Account
+                  SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                          onPressed: () {},
+                          child: const Text(TTexts.createAccount))),
                 ],
               ))
             ],
