@@ -5,6 +5,7 @@ import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -103,7 +104,6 @@ class LoginScreen extends StatelessWidget {
                         child: OutlinedButton(
                             onPressed: () {},
                             child: const Text(TTexts.createAccount))),
-                    const SizedBox(height: TSizes.spaceBtwItems),
                   ],
                 ),
               )),
@@ -112,12 +112,31 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Divider(
-                      color: dark ? TColors.darkGrey : TColors.grey,
-                      thickness: 0.5,
-                      indent: 60,
-                      endIndent: 5),
+                  Flexible(
+                    child: Divider(
+                        color: dark ? TColors.darkGrey : TColors.grey,
+                        thickness: 0.5,
+                        indent: 60,
+                        endIndent: 5),
+                  ),
+                  Text(
+                    TTexts.orSignInWith.capitalize!,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  Flexible(
+                    child: Divider(
+                        color: dark ? TColors.darkGrey : TColors.grey,
+                        thickness: 0.5,
+                        indent: 5,
+                        endIndent: 60),
+                  ),
                 ],
+              ),
+
+              /// Footer
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Container()],
               )
             ],
           ),
