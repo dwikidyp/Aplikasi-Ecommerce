@@ -113,9 +113,10 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Divider(
-                    color: dark ? TColors.darkGrey : TColors.grey,
-                    thickness: 0.5,
-                  )
+                      color: dark ? TColors.darkGrey : TColors.grey,
+                      thickness: 0.5,
+                      indent: 60,
+                      endIndent: 5),
                 ],
               )
             ],
