@@ -86,6 +86,16 @@ class SignupScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),
+
+                  /// Terms&Condition Checkbox
+                  Row(
+                    children: [
+                      SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: Checkbox(value: true, onChanged: (value) {})),
+                    ],
+                  )
                 ],
               ))
             ],
