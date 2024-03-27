@@ -1,6 +1,7 @@
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -11,7 +12,7 @@ class SignupScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               /// Title
@@ -25,8 +26,13 @@ class SignupScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      TextFormField(),
-                      TextFormField(),
+                      TextFormField(
+                        expands: false,
+                        decoration: const InputDecoration(
+                          labelText: TTexts.firstName,
+                          prefixIcon: Icon(Iconsax.user),
+                        ),
+                      ),
                     ],
                   )
                 ],
