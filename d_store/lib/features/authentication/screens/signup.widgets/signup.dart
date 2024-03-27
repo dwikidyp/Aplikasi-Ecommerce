@@ -40,13 +40,52 @@ class SignupScreen extends StatelessWidget {
                         child: TextFormField(
                           expands: false,
                           decoration: const InputDecoration(
-                            labelText: TTexts.firstName,
+                            labelText: TTexts.lastName,
                             prefixIcon: Icon(Iconsax.user),
                           ),
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputField),
+
+                  /// Username
+                  TextFormField(
+                    expands: false,
+                    decoration: const InputDecoration(
+                      labelText: TTexts.username,
+                      prefixIcon: Icon(Iconsax.user_edit),
+                    ),
+                  ),
+
+                  /// Email
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: TTexts.email,
+                      prefixIcon: Icon(Iconsax.direct),
+                    ),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputField),
+
+                  /// Phone Number
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: TTexts.phoneNo,
+                      prefixIcon: Icon(Iconsax.call),
+                    ),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputField),
+
+                  /// Password
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: TTexts.password,
+                      prefixIcon: Icon(Iconsax.password_check),
+                      suffixIcon: Icon(Iconsax.eye_slash),
+                    ),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputField),
                 ],
               ))
             ],
