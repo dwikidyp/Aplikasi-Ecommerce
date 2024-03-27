@@ -26,11 +26,23 @@ class SignupScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      TextFormField(
-                        expands: false,
-                        decoration: const InputDecoration(
-                          labelText: TTexts.firstName,
-                          prefixIcon: Icon(Iconsax.user),
+                      Expanded(
+                        child: TextFormField(
+                          expands: false,
+                          decoration: const InputDecoration(
+                            labelText: TTexts.firstName,
+                            prefixIcon: Icon(Iconsax.user),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: TSizes.spaceBtwInputField),
+                      Expanded(
+                        child: TextFormField(
+                          expands: false,
+                          decoration: const InputDecoration(
+                            labelText: TTexts.firstName,
+                            prefixIcon: Icon(Iconsax.user),
+                          ),
                         ),
                       ),
                     ],
