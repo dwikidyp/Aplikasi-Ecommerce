@@ -57,20 +57,20 @@ class TTextFormFieldTheme {
       borderSide: const BorderSide(width: 1, color: TColors.darkGrey),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 1, color: Colors.grey),
+      borderRadius: BorderRadius.circular(TSizes.inputFieldRadius),
+      borderSide: const BorderSide(width: 1, color: TColors.grey),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 1, color: Colors.white),
+      borderRadius: BorderRadius.circular(TSizes.inputFieldRadius),
+      borderSide: const BorderSide(width: 1, color: TColors.white),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 1, color: Colors.red),
+      borderRadius: BorderRadius.circular(TSizes.inputFieldRadius),
+      borderSide: const BorderSide(width: 1, color: TColors.warning),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 2, color: Colors.orange),
+      borderRadius: BorderRadius.circular(TSizes.inputFieldRadius),
+      borderSide: const BorderSide(width: 2, color: TColors.warning),
     ),
   );
 }

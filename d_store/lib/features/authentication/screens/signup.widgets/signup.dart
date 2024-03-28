@@ -94,6 +94,9 @@ class SignupScreen extends StatelessWidget {
                           width: 24,
                           height: 24,
                           child: Checkbox(value: true, onChanged: (value) {})),
+                      const SizedBox(width: TSizes.spaceBtwItems),
+                      const Text.rich(TextSpan(
+                          children: [TextSpan(text: '${TTexts.iAgreeTo} ')]))
                     ],
                   )
                 ],
