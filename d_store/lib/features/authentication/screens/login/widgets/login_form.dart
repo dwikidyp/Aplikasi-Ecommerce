@@ -1,4 +1,4 @@
-import 'package:d_store/features/authentication/screens/signup.widgets/signup.dart';
+import 'package:d_store/features/authentication/screens/signup/signup.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
