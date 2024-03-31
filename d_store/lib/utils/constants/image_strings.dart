@@ -14,4 +14,18 @@ class TImages {
       'assets/images/on_boarding_images/sammy-line-shopping.gif';
   static const String onBoardingImage3 =
       'assets/images/on_boarding_images/sammy-line-delivery.gif';
+
+  // Animation
+  static const String productsIllustration =
+      "assets/images/animations/sammy-line-basketball-ball-and-training-equipment.gif";
+  static const String productsSaleIllustration =
+      "assets/images/animations/sammy-line-online-shopping-1.png";
+  static const String staticSuccessIllustration =
+      "assets/images/animations/sammy-line-man-receives-a-check-after-a-successful-online-transaction.png";
+  static const String deliveredInPlaneIllustration =
+      "assets/images/animations/sammy-line-come-back-later.png";
+  static const String deliveredEmailIllustration =
+      "assets/images/animations/sammy-line-man-receives-a-mail.png";
+  static const String verifyIllustration =
+      "assets/images/animations/sammy-line-backpack-camera-and-map-for-travel.gif";
 }

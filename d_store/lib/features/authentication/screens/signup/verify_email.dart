@@ -1,3 +1,5 @@
+import 'package:d_store/features/authentication/screens/login/login.dart';
+import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class VerifyEmailScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(),
+              onPressed: () => Get.offAll(() => const LoginScreen()),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -22,6 +24,7 @@ class VerifyEmailScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Image
+              Image(image: AssetImage(TImages.deliveredEmailIllustration))
             ],
           ),
         ),
