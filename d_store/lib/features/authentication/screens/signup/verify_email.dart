@@ -1,3 +1,4 @@
+import 'package:d_store/common/widgets/success_screen/success_screen.dart';
 import 'package:d_store/features/authentication/screens/login/login.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
@@ -39,7 +40,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                'headblack34@gmail.com',
+                'dwikishiro23@gmail.com',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -63,7 +64,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => const SuccessScreen()),
                   child: const Text(TTexts.resendEmail),
                 ),
               ),
