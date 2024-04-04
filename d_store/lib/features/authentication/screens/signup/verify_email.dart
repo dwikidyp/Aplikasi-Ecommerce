@@ -56,7 +56,12 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => SuccessScreen(
+                        image: TImages.staticSuccessIllustration,
+                        title: TTexts.yourAccountCreatedTitle,
+                        subTitle: TTexts.yourAccountCreatedSubTitle,
+                        onPressed: () => Get.to(() => const LoginScreen()),
+                      )),
                   child: const Text(TTexts.tCountinue),
                 ),
               ),
@@ -64,7 +69,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () => Get.to(() => const SuccessScreen()),
+                  onPressed: () {},
                   child: const Text(TTexts.resendEmail),
                 ),
               ),
