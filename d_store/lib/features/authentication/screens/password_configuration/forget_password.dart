@@ -1,6 +1,9 @@
+import 'package:d_store/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -23,6 +26,21 @@ class ForgetPassword extends StatelessWidget {
             Text(TTexts.forgetPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: TSizes.spaceBtwSections * 2),
+
+            /// Text Field
+            TextFormField(
+              decoration: const InputDecoration(
+                  labelText: TTexts.email,
+                  prefixIcon: Icon(Iconsax.direct_right)),
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
+
+            /// Submit
+            SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () => Get.off(() => const ResetPassword()),
+                    child: const Text(TTexts.submit)))
           ],
         ),
       ),
