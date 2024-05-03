@@ -3,6 +3,7 @@ import 'package:d_store/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/device/device_utility.dart';
+import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -18,28 +19,51 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Appbar
-                  const THomeAppBar(),
-                  const SizedBox(
+                  THomeAppBar(),
+                  SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
 
                   /// Searchbar
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.defaultSpace),
-                    child: Container(
-                      width: TDeviceUtils.getScreenWidth(context),
-                      padding: const EdgeInsets.all(TSizes.md),
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius:
-                              BorderRadius.circular(TSizes.cardRadiusLg),
-                          border: Border.all(color: TColors.grey)),
-                    ),
-                  )
+                  TSearchContainer(text: ,)
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TSearchContainer extends StatelessWidget {
+  const TSearchContainer({
+    super.key, required this.text, this.icon, this.showBackground = true, this.showBorder = true,
+  });
+
+  final String text;
+  final IconData? icon;
+  final bool showBackground, showBorder;
+
+  @override
+  Widget build(BuildContext context) {
+    final dark =THelperFunctions.isDarkMode(context);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      child: Container(
+        width: TDeviceUtils.getScreenWidth(context),
+        padding: const EdgeInsets.all(TSizes.md),
+        decoration: BoxDecoration(
+            color: showBackground ? dark ? TColors.dark : TColors.light : Colors.transparent,
+            borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
+            border: showBorder ? Border.all(color: TColors.grey) : null),
+        child: Row(
+          children: [
+            Icon(icon, color: TColors.darkerGrey),
+            const SizedBox(width: TSizes.spaceBtwItems),
+            Text(text,
+                style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),
