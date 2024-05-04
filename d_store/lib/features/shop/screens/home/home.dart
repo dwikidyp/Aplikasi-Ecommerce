@@ -1,9 +1,7 @@
 import 'package:d_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:d_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
-import 'package:d_store/utils/device/device_utility.dart';
-import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,7 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -19,13 +17,24 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Appbar
-                  THomeAppBar(),
-                  SizedBox(
+                  const THomeAppBar(),
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
 
                   /// Searchbar
-                  TSearchContainer(text: ,)
+                  const TSearchContainer(text: 'Search in Store'),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+
+                  // Categories
+                  Padding(
+                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+                    child: Column(
+                      children: [TSectionHeading()],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -36,37 +45,37 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class TSearchContainer extends StatelessWidget {
-  const TSearchContainer({
-    super.key, required this.text, this.icon, this.showBackground = true, this.showBorder = true,
+class TSectionHeading extends StatelessWidget {
+  const TSectionHeading({
+    super.key,
+    this.textColor,
+    required this.showActionButton,
+    required this.title,
+    required this.buttonTitle,
+    this.onPressed,
   });
 
-  final String text;
-  final IconData? icon;
-  final bool showBackground, showBorder;
+  final Color? textColor;
+  final bool showActionButton;
+  final String title, buttonTitle;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    final dark =THelperFunctions.isDarkMode(context);
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-      child: Container(
-        width: TDeviceUtils.getScreenWidth(context),
-        padding: const EdgeInsets.all(TSizes.md),
-        decoration: BoxDecoration(
-            color: showBackground ? dark ? TColors.dark : TColors.light : Colors.transparent,
-            borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
-            border: showBorder ? Border.all(color: TColors.grey) : null),
-        child: Row(
-          children: [
-            Icon(icon, color: TColors.darkerGrey),
-            const SizedBox(width: TSizes.spaceBtwItems),
-            Text(text,
-                style: Theme.of(context).textTheme.bodySmall),
-          ],
+    return Row(
+      children: [
+        Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .headlineSmall!
+              .apply(color: textColor),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
-      ),
+        if (showActionButton)
+          TextButton(onPressed: onPressed, child: Text(buttonTitle))
+      ],
     );
   }
 }
