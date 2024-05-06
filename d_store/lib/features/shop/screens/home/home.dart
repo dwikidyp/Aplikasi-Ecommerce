@@ -1,6 +1,8 @@
 import 'package:d_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:d_store/common/widgets/texts/section_heading.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +34,44 @@ class HomeScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
-                      children: [TSectionHeading()],
+                      children: [
+                        // Heading
+                        TSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                        ),
+                        const SizedBox(
+                          height: TSizes.spaceBtwItems,
+                        ),
+
+                        // Categories
+                        SizedBox(
+                          height: 80,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: 6,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (_, index) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      width: 56,
+                                      height: 56,
+                                      padding: const EdgeInsets.all(TSizes.sm),
+                                      decoration: BoxDecoration(
+                                        color: TColors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      ),
+                                      child: Center(
+                                        child: Image(image: AssetImage('')),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }),
+                        )
+                      ],
                     ),
                   )
                 ],
@@ -41,41 +80,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class TSectionHeading extends StatelessWidget {
-  const TSectionHeading({
-    super.key,
-    this.textColor,
-    required this.showActionButton,
-    required this.title,
-    required this.buttonTitle,
-    this.onPressed,
-  });
-
-  final Color? textColor;
-  final bool showActionButton;
-  final String title, buttonTitle;
-  final void Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .apply(color: textColor),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle))
-      ],
     );
   }
 }
