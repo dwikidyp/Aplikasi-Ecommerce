@@ -1,9 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:d_store/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:d_store/common/widgets/images/t_rounded_image.dart';
 import 'package:d_store/common/widgets/texts/section_heading.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_categories.dart';
-import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +15,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
               child: Column(
                 children: [
                   ///Appbar
@@ -57,65 +59,33 @@ class HomeScreen extends StatelessWidget {
             ),
             // Body
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TRoundedImage(),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(viewportFraction: 1),
+                    items: const [
+                      TRoundedImage(imageUrl: TImages.promoBanner1),
+                      TRoundedImage(imageUrl: TImages.promoBanner2),
+                      TRoundedImage(imageUrl: TImages.promoBanner3),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  Row(
+                    children: [
+                      for (int i = 0; i < 3; i++)
+                        const TCircularContainer(
+                          width: 20,
+                          height: 20,
+                          backgroundColor: Colors.green,
+                        ),
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class TRoundedImage extends StatelessWidget {
-  const TRoundedImage({
-    super.key,
-    this.width = 150,
-    this.height = 158,
-    required this.imageUrl,
-    this.applyImageRadius = false,
-    this.border,
-    this.backgroundColor = TColors.light,
-    this.fit = BoxFit.contain,
-    this.padding,
-    this.isNetworkImage = false,
-    this.onPressed,
-    required this.borderRadius,
-  });
-
-  final double? width, height;
-  final String imageUrl;
-  final bool applyImageRadius;
-  final BoxBorder? border;
-  final Color backgroundColor;
-  final BoxFit? fit;
-  final EdgeInsetsGeometry? padding;
-  final bool isNetworkImage;
-  final VoidCallback? onPressed;
-  final double borderRadius;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: width,
-        height: height,
-        padding: padding,
-        decoration: BoxDecoration(
-            border: border,
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(borderRadius)),
-        child: ClipRRect(
-            borderRadius: applyImageRadius
-                ? BorderRadius.circular(borderRadius)
-                : BorderRadius.zero,
-            child: Image(
-              image: isNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider,
-              fit: fit,
-            )),
       ),
     );
   }
