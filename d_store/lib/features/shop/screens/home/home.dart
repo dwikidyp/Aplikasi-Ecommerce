@@ -1,9 +1,11 @@
 import 'package:d_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:d_store/common/widgets/products/products_cards/product_card_vertical.dart';
 import 'package:d_store/common/widgets/texts/section_heading.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:d_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:d_store/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +59,20 @@ class HomeScreen extends StatelessWidget {
             // Body
             Padding(
               padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TPromoSlider(),
+              child: Column(
+                children: [
+                  TPromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3
+                    ],
+                  ),
+
+                  //Popular products
+                  TProductCardVertical(),
+                ],
+              ),
             )
           ],
         ),
