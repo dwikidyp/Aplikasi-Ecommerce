@@ -66,14 +66,60 @@ class TProductCardVertical extends StatelessWidget {
           ),
           const SizedBox(height: TSizes.spaceBtwItems / 2),
           // Details
-          const Padding(
-            padding: EdgeInsets.only(left: TSizes.sm),
+          Padding(
+            padding: const EdgeInsets.only(left: TSizes.sm),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TProductTitleText(
+                const TProductTitleText(
                   title: 'Cloth 1',
                   smallSize: true,
+                ),
+                const SizedBox(height: TSizes.spaceBtwItems / 2),
+                Row(
+                  children: [
+                    Text(
+                      'Adidas',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                    const SizedBox(width: TSizes.xs),
+                    const Icon(
+                      Iconsax.verify5,
+                      color: TColors.primary,
+                      size: TSizes.iconXs,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    /// Price
+                    Text(
+                      '\$11.5',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                          color: TColors.dark,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(TSizes.cardRadiusMd),
+                              bottomRight:
+                                  Radius.circular(TSizes.productImageRadius))),
+                      child: const SizedBox(
+                        width: TSizes.iconLg * 1.2,
+                        height: TSizes.iconLg * 1.2,
+                        child: Center(
+                          child: Icon(
+                            Iconsax.add,
+                            color: TColors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),
