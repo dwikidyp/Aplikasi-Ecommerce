@@ -2,6 +2,7 @@ import 'package:d_store/common/styles/shadows.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:d_store/common/widgets/images/t_rounded_image.dart';
+import 'package:d_store/common/widgets/texts/product_price_text.dart';
 import 'package:d_store/common/widgets/texts/product_title_text.dart';
 import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
@@ -55,7 +56,7 @@ class TProductCardVertical extends StatelessWidget {
                     ),
                   ),
 
-                  // Favorite Icon
+                  /// Favorite Icon
                   const Positioned(
                       top: 0,
                       right: 0,
@@ -67,7 +68,8 @@ class TProductCardVertical extends StatelessWidget {
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
-            // Details
+
+            /// Details
             Padding(
               padding: const EdgeInsets.only(left: TSizes.sm),
               child: Column(
@@ -94,38 +96,43 @@ class TProductCardVertical extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Price
-                      Text(
-                        '\$11.5',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: TColors.dark,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(TSizes.cardRadiusMd),
-                                bottomRight: Radius.circular(
-                                    TSizes.productImageRadius))),
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: TColors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
+            ),
+
+            /// Add spacer
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// Price
+                const Padding(
+                  padding: EdgeInsets.only(left: TSizes.sm),
+                  child: TProductPriceText(price: '11.000'),
+                ),
+
+                /// Add to cart button
+                Container(
+                  decoration: const BoxDecoration(
+                      color: TColors.dark,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(TSizes.cardRadiusMd),
+                          bottomRight:
+                              Radius.circular(TSizes.productImageRadius))),
+                  child: const SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: TColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
