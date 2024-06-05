@@ -60,6 +60,7 @@ class StoreScreen extends StatelessWidget {
                           title: 'Featured Brands', onPressed: () {}),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
+                      /// Brands Grid
                       TGridLayout(
                           itemCount: 4,
                           mainAxisExtent: 80,
@@ -112,10 +113,35 @@ class StoreScreen extends StatelessWidget {
                                 ),
                               ),
                             );
-                          })
+                          }),
                     ],
                   ),
                 ),
+
+                /// Tabs
+                bottom: TabBar(
+                    isScrollable: true,
+                    indicatorColor: TColors.primary,
+                    labelColor: THelperFunctions.isDarkMode(context)
+                        ? TColors.white
+                        : TColors.primary,
+                    tabs: const [
+                      Tab(
+                        child: Text('Sports'),
+                      ),
+                      Tab(
+                        child: Text('Furniture'),
+                      ),
+                      Tab(
+                        child: Text('Electronics'),
+                      ),
+                      Tab(
+                        child: Text('Clothes'),
+                      ),
+                      Tab(
+                        child: Text('Cosmetics'),
+                      ),
+                    ]),
               ),
             ];
           },
