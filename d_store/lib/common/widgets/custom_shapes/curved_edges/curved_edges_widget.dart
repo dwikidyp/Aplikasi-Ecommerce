@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class TCurvedEdgeWidget extends StatelessWidget {
   const TCurvedEdgeWidget({
     super.key,
-    this.child,
+    required this.child,
   });
 
   final Widget? child;
