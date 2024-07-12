@@ -1,5 +1,9 @@
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:d_store/common/widgets/texts/product_price_text.dart';
+import 'package:d_store/common/widgets/texts/product_title_text.dart';
+import 'package:d_store/common/widgets/texts/section_heading.dart';
 import 'package:d_store/utils/constants/colors.dart';
+import 'package:d_store/utils/constants/sizes.dart';
 import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +17,67 @@ class TProductAttributes extends StatelessWidget {
       children: [
         /// Selected
         TRoundedContainer(
+          padding: const EdgeInsets.all(TSizes.md),
           backgroundColor: dark ? TColors.darkerGrey : TColors.grey,
-          child: const Column(
+          child: Column(
             children: [
               /// title, Price
               Row(
-                children: [],
+                children: [
+                  const TSectionHeading(
+                      title: 'Variation : ', showActionButton: false),
+                  const SizedBox(width: TSizes.spaceBtwItems),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const TProductTitleText(
+                              title: 'Harga : ', smallSize: true),
+
+                          /// Actual Price
+                          Text('\RP5.000',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .apply(
+                                      decoration: TextDecoration.lineThrough)),
+                          const SizedBox(width: TSizes.spaceBtwItems),
+
+                          /// Sale Price
+                          const TProductPriceText(price: '4000'),
+                        ],
+                      ),
+
+                      /// Stock
+                      Row(
+                        children: [
+                          const TProductTitleText(
+                              title: 'Stock : ', smallSize: true),
+                          Text('In Stock',
+                              style: Theme.of(context).textTheme.titleMedium),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+              /// Variation Description
+              const TProductTitleText(
+                title:
+                    'This is the description of the product and it can go upto max 4 lines.',
+                smallSize: true,
+                maxLines: 4,
               )
             ],
           ),
         ),
+
+        const SizedBox(height: TSizes.spaceBtwItems),
+
+        /// Attributes
+        Column(),
       ],
     );
   }
