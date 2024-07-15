@@ -1,3 +1,4 @@
+import 'package:d_store/common/widgets/chips/choice_chip.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/texts/product_price_text.dart';
 import 'package:d_store/common/widgets/texts/product_title_text.dart';
@@ -77,7 +78,13 @@ class TProductAttributes extends StatelessWidget {
         const SizedBox(height: TSizes.spaceBtwItems),
 
         /// Attributes
-        Column(),
+        Column(
+          children: [
+            const TSectionHeading(title: 'Colors'),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            TChoiceChip(),
+          ],
+        ),
       ],
     );
   }
