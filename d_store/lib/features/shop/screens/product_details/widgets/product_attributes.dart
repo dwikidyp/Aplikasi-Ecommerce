@@ -78,11 +78,11 @@ class TProductAttributes extends StatelessWidget {
         const SizedBox(height: TSizes.spaceBtwItems),
 
         /// Attributes
-        Column(
+        const Column(
           children: [
-            const TSectionHeading(title: 'Colors'),
-            const SizedBox(height: TSizes.spaceBtwItems / 2),
-            TChoiceChip(),
+            TSectionHeading(title: 'Colors'),
+            SizedBox(height: TSizes.spaceBtwItems / 2),
+            TChoiceChip(text: 'Green', selected: true),
           ],
         ),
       ],
