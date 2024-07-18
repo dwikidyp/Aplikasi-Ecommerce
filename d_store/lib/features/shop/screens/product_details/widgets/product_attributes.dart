@@ -78,11 +78,64 @@ class TProductAttributes extends StatelessWidget {
         const SizedBox(height: TSizes.spaceBtwItems),
 
         /// Attributes
-        const Column(
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TSectionHeading(title: 'Colors'),
-            SizedBox(height: TSizes.spaceBtwItems / 2),
-            TChoiceChip(text: 'Green', selected: true),
+            const TSectionHeading(
+              title: 'Colors',
+              showActionButton: false,
+            ),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                TChoiceChip(
+                  text: 'Green',
+                  selected: true,
+                  onSelected: (value) {},
+                ),
+                TChoiceChip(
+                  text: 'Blue',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                TChoiceChip(
+                  text: 'Yellow',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+              ],
+            )
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TSectionHeading(
+              title: 'Size',
+              showActionButton: false,
+            ),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                TChoiceChip(
+                  text: '34',
+                  selected: true,
+                  onSelected: (value) {},
+                ),
+                TChoiceChip(
+                  text: '35',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                TChoiceChip(
+                  text: '36',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+              ],
+            ),
           ],
         ),
       ],
