@@ -1,9 +1,13 @@
+import 'package:d_store/common/widgets/texts/section_heading.dart';
+import 'package:d_store/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:d_store/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:d_store/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:d_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:d_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:readmore/readmore.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
@@ -11,6 +15,7 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const TBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -39,7 +44,47 @@ class ProductDetailScreen extends StatelessWidget {
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () {}, child: Text('Checkout'))),
+                          onPressed: () {}, child: const Text('Checkout'))),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
+                  /// Description
+                  const TSectionHeading(
+                    title: 'Description',
+                    showActionButton: false,
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  const ReadMoreText(
+                    'Temukan kenyamanan dan gaya dengan Urban Trendsetter Casual Sneakers kami, sepatu kasual pria yang dirancang untuk menemani aktivitas sehari-hari Anda dengan penuh percaya diri. Terbuat dari bahan kulit sintetis berkualitas tinggi dan mesh yang breathable, sepatu ini menawarkan kombinasi ideal antara ketahanan dan kenyamanan.',
+                    trimLines: 2,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: 'Show More',
+                    trimExpandedText: 'less',
+                    moreStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  ),
+
+                  /// Reviews
+                  const Divider(),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const TSectionHeading(
+                        title: 'Reviews(99)',
+                        showActionButton: false,
+                      ),
+                      IconButton(
+                        icon: const Icon(
+                          Iconsax.arrow_right_3,
+                          size: 18,
+                        ),
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),

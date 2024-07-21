@@ -36,7 +36,6 @@ dependencies:
   intl: ^0.18.1
   logger: ^2.0.1
   url_launcher: ^6.1.12
-  carousel_slider: ^4.2.1
   flutter_native_splash: ^2.3.2
   smooth_page_indicator: ^1.1.0
 
@@ -48,6 +47,11 @@ dependencies:
   # State Management
   get: ^4.6.5
   get_storage: ^2.1.1
+
+  # Product Specific
+  readmore: ^2.2.0
+  carousel_slider: ^4.2.1
+
 
 dev_dependencies:
   flutter_test:
