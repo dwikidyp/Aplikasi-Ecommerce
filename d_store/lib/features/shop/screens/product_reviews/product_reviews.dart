@@ -1,5 +1,7 @@
 import 'package:d_store/common/widgets/appbar/appbar.dart';
+import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
+import 'package:d_store/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class ProductReviewsScreen extends StatelessWidget {
@@ -7,9 +9,9 @@ class ProductReviewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       /// appbar
-      appBar: TAppBar(
+      appBar: const TAppBar(
         title: Text('Reviews & Ratings'),
         showBackArrow: true,
       ),
@@ -17,16 +19,55 @@ class ProductReviewsScreen extends StatelessWidget {
       /// Body
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                   'Ratings and reviews are verified and are from people who use the same type of device that you use.'),
-              SizedBox(height: TSizes.spaceBtwItems),
+              const SizedBox(height: TSizes.spaceBtwItems),
 
               /// Overall Product Ratings
-              Row(),
+              Row(
+                children: [
+                  Expanded(
+                      flex: 3,
+                      child: Text('4.8',
+                          style: Theme.of(context).textTheme.displayLarge)),
+                  Expanded(
+                    flex: 7,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Text('5',
+                                  style:
+                                      Theme.of(context).textTheme.bodyMedium),
+                            ),
+                            Expanded(
+                              flex: 11,
+                              child: SizedBox(
+                                width:
+                                    TDeviceUtils.getScreenWidth(context) * 0.8,
+                                child: LinearProgressIndicator(
+                                  value: 0.5,
+                                  minHeight: 11,
+                                  backgroundColor: TColors.grey,
+                                  valueColor: const AlwaysStoppedAnimation(
+                                      TColors.primary),
+                                  borderRadius: BorderRadius.circular(7),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
