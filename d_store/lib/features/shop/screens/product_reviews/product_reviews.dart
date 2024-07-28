@@ -1,7 +1,8 @@
 import 'package:d_store/common/widgets/appbar/appbar.dart';
-import 'package:d_store/utils/constants/colors.dart';
+import 'package:d_store/common/widgets/products/ratings/rating_indicator.dart';
+import 'package:d_store/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+import 'package:d_store/features/shop/screens/product_reviews/widgets/user_review_cart.dart';
 import 'package:d_store/utils/constants/sizes.dart';
-import 'package:d_store/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class ProductReviewsScreen extends StatelessWidget {
@@ -28,46 +29,15 @@ class ProductReviewsScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
 
               /// Overall Product Ratings
-              Row(
-                children: [
-                  Expanded(
-                      flex: 3,
-                      child: Text('4.8',
-                          style: Theme.of(context).textTheme.displayLarge)),
-                  Expanded(
-                    flex: 7,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Text('5',
-                                  style:
-                                      Theme.of(context).textTheme.bodyMedium),
-                            ),
-                            Expanded(
-                              flex: 11,
-                              child: SizedBox(
-                                width:
-                                    TDeviceUtils.getScreenWidth(context) * 0.8,
-                                child: LinearProgressIndicator(
-                                  value: 0.5,
-                                  minHeight: 11,
-                                  backgroundColor: TColors.grey,
-                                  valueColor: const AlwaysStoppedAnimation(
-                                      TColors.primary),
-                                  borderRadius: BorderRadius.circular(7),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              const TOverallProductRating(),
+              const TRatingBarIndicator(
+                rating: 3.5,
               ),
+              Text('2.611', style: Theme.of(context).textTheme.bodySmall),
+              const SizedBox(height: TSizes.spaceBtwSections),
+
+              /// User Review List
+              const UserReviewCard(),
             ],
           ),
         ),
