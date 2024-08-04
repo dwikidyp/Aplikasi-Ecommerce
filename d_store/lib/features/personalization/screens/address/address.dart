@@ -1,6 +1,6 @@
 import 'package:d_store/common/widgets/appbar/appbar.dart';
-import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/features/personalization/screens/address/add_new_address.dart';
+import 'package:d_store/features/personalization/screens/address/widgets/single_addres.dart';
 import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,10 @@ class UserAddressScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-            children: [],
+            children: [
+              TSingleAddress(selectedAddress: true),
+              TSingleAddress(selectedAddress: false),
+            ],
           ),
         ),
       ),
