@@ -41,6 +41,7 @@ class TSingleAddress extends StatelessWidget {
             ),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Jamal',
