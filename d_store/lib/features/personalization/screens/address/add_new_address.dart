@@ -75,7 +75,13 @@ class AddNewAddressScreen extends StatelessWidget {
                       prefixIcon: Icon(Iconsax.global), labelText: 'Country'),
                 ),
                 const SizedBox(height: TSizes.defaultSpace),
-                SizedBox()
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Save'),
+                  ),
+                )
               ],
             ),
           ),
