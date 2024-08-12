@@ -1,11 +1,8 @@
 import 'package:d_store/common/widgets/appbar/appbar.dart';
-import 'package:d_store/common/widgets/images/t_rounded_image.dart';
-import 'package:d_store/common/widgets/texts/product_title_text.dart';
-import 'package:d_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
-import 'package:d_store/utils/constants/colors.dart';
-import 'package:d_store/utils/constants/image_strings.dart';
+import 'package:d_store/common/widgets/products/cart/add_remove_button.dart';
+import 'package:d_store/common/widgets/products/cart/cart_item.dart';
+import 'package:d_store/common/widgets/texts/product_price_text.dart';
 import 'package:d_store/utils/constants/sizes.dart';
-import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -30,51 +27,17 @@ class CartScreen extends StatelessWidget {
             separatorBuilder: (_, __) => const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-            itemBuilder: (_, index) => Column(
+            itemBuilder: (_, index) => const Column(
               children: [
+                TCartItem(),
+                SizedBox(height: TSizes.spaceBtwItems),
                 Row(
                   children: [
-                    /// Image
-                    TRoundedImage(
-                      imageUrl: TImages.productImage1,
-                      width: 60,
-                      height: 60,
-                      padding: const EdgeInsets.all(TSizes.sm),
-                      backgroundColor: THelperFunctions.isDarkMode(context)
-                          ? TColors.darkerGrey
-                          : TColors.light,
-                    ),
-                    const SizedBox(width: TSizes.spaceBtwItems),
+                    SizedBox(width: 70),
 
-                    /// Title, Price
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const TBrandTitleWithVerifiedIcon(title: 'Nike'),
-                        const Flexible(
-                          child: TProductTitleText(
-                              title: 'Black Jacket', maxLines: 1),
-                        ),
-
-                        /// Attributes
-                        Text.rich(
-                          TextSpan(children: [
-                            TextSpan(
-                                text: 'Color',
-                                style: Theme.of(context).textTheme.bodySmall),
-                            TextSpan(
-                                text: 'Green',
-                                style: Theme.of(context).textTheme.bodyLarge),
-                            TextSpan(
-                                text: 'Size',
-                                style: Theme.of(context).textTheme.bodySmall),
-                            TextSpan(
-                                text: 'XL',
-                                style: Theme.of(context).textTheme.bodyLarge),
-                          ]),
-                        ),
-                      ],
-                    )
+                    /// Add Remove
+                    TProductQuantityWithAddRemove(),
+                    TProductPriceText(price: '2000'),
                   ],
                 ),
               ],
