@@ -85,6 +85,7 @@ flutter:
     - assets/images/animations/
     - assets/images/reviews/
     - assets/icons/categories/
+    - assets/icons/payment_methods/
     - assets/images/products/
     - assets/images/user/
 

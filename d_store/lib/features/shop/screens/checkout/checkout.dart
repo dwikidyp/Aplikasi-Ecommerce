@@ -2,6 +2,7 @@ import 'package:d_store/common/widgets/appbar/appbar.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/products/cart/coupon_widget.dart';
 import 'package:d_store/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:d_store/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:d_store/features/shop/screens/checkout/widgets/billing_payment_section.dart';
 import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/sizes.dart';
@@ -48,6 +49,10 @@ class CheckoutScreen extends StatelessWidget {
 
                     /// Divider
                     Divider(),
+                    SizedBox(height: TSizes.spaceBtwItems),
+
+                    /// Payment methods
+                    TBillingAddressSection(),
                     SizedBox(height: TSizes.spaceBtwItems),
                   ],
                 ),

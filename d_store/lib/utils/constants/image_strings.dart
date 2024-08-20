@@ -57,6 +57,15 @@ class TImages {
   static const String userProfileImage1 =
       "assets/images/reviews/review_profile_image_1.jpg";
 
+  /// Payment Methods
+  static const String paypal = "assets/icons/payment_methods/Paypal.png";
+  static const String creditCard =
+      "assets/icons/payment_methods/credit-card.jpg";
+  static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String masterCard =
+      "assets/icons/payment_methods/master-card.png";
+  static const String visa = "assets/icons/payment_methods/visa.png";
+
   // Profile
   static const String user = "assets/images/user/user.png";
 
