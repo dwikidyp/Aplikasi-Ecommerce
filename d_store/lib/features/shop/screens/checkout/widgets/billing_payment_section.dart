@@ -1,4 +1,9 @@
+import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:d_store/common/widgets/texts/section_heading.dart';
+import 'package:d_store/utils/constants/colors.dart';
+import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
+import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class TBillingPaymentSection extends StatelessWidget {
@@ -6,44 +11,29 @@ class TBillingPaymentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
-        /// Subtotal
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\RP 4000', style: Theme.of(context).textTheme.bodyMedium),
-          ],
+        TSectionHeading(
+          title: 'Payment Method',
+          buttonTitle: 'Change',
+          onPressed: () {},
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
-
-        /// Shippting fee
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Shipping Fee', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\RP 1000', style: Theme.of(context).textTheme.labelLarge),
-          ],
-        ),
-        const SizedBox(height: TSizes.spaceBtwItems / 2),
-
-        /// Tax fee
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Tax Fee', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\RP 1000', style: Theme.of(context).textTheme.labelLarge),
-          ],
-        ),
-        const SizedBox(height: TSizes.spaceBtwItems / 2),
-
-        /// Order total
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Order Total', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\RP 6000', style: Theme.of(context).textTheme.titleMedium),
+            TRoundedContainer(
+              width: 60,
+              height: 35,
+              backgroundColor: dark ? TColors.light : TColors.white,
+              padding: const EdgeInsets.all(TSizes.sm),
+              child: const Image(
+                image: AssetImage(TImages.paypal),
+                fit: BoxFit.contain,
+              ),
+            ),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Text('Paypal', style: Theme.of(context).textTheme.bodyLarge),
           ],
         ),
       ],

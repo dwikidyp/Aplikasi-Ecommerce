@@ -1,9 +1,5 @@
-import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/texts/section_heading.dart';
-import 'package:d_store/utils/constants/colors.dart';
-import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
-import 'package:d_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class TBillingAddressSection extends StatelessWidget {
@@ -11,29 +7,36 @@ class TBillingAddressSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TSectionHeading(
-          title: 'Payment Method',
+          title: 'Shipping Address',
           buttonTitle: 'Change',
           onPressed: () {},
         ),
+        Text('Dwiki', style: Theme.of(context).textTheme.bodyLarge),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
         Row(
           children: [
-            TRoundedContainer(
-              width: 60,
-              height: 35,
-              backgroundColor: dark ? TColors.light : TColors.white,
-              padding: const EdgeInsets.all(TSizes.sm),
-              child: const Image(
-                image: AssetImage(TImages.paypal),
-                fit: BoxFit.contain,
+            const Icon(Icons.phone, color: Colors.grey, size: 16),
+            SizedBox(width: TSizes.spaceBtwItems),
+            Text('+628 1234 5678 901',
+                style: Theme.of(context).textTheme.bodyMedium),
+          ],
+        ),
+        SizedBox(height: TSizes.spaceBtwItems / 2),
+        Row(
+          children: [
+            Icon(Icons.location_history, color: Colors.grey, size: 16),
+            SizedBox(width: TSizes.spaceBtwItems),
+            Expanded(
+              child: Text(
+                'Tangerang, banten, Indonesia',
+                style: Theme.of(context).textTheme.bodyMedium,
+                softWrap: true,
               ),
             ),
-            const SizedBox(height: TSizes.spaceBtwItems / 2),
-            Text('Paypal', style: Theme.of(context).textTheme.bodyLarge),
           ],
         ),
       ],
