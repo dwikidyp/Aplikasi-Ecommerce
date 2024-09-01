@@ -2,6 +2,9 @@ import 'package:d_store/common/styles/shadows.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:d_store/common/widgets/images/t_rounded_image.dart';
+import 'package:d_store/common/widgets/texts/product_price_text.dart';
+import 'package:d_store/common/widgets/texts/product_title_text.dart';
+import 'package:d_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:d_store/utils/constants/colors.dart';
 import 'package:d_store/utils/constants/image_strings.dart';
 import 'package:d_store/utils/constants/sizes.dart';
@@ -68,6 +71,54 @@ class TProductCardHorizontal extends StatelessWidget {
               ],
             ),
           ),
+
+          /// Details
+          SizedBox(
+            width: 172,
+            child: Padding(
+              padding: EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
+              child: Column(
+                children: [
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TProductTitleText(
+                        title: 'Title Product',
+                        smallSize: true,
+                      ),
+                      SizedBox(height: TSizes.spaceBtwItems / 2),
+                      TBrandTitleWithVerifiedIcon(title: 'Nike'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const TProductPriceText(price: ' 4000'),
+
+                      /// Add to cart button
+                      Container(
+                        decoration: const BoxDecoration(
+                            color: TColors.dark,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(TSizes.cardRadiusMd),
+                                bottomRight: Radius.circular(
+                                    TSizes.productImageRadius))),
+                        child: const SizedBox(
+                          width: TSizes.iconLg * 1.2,
+                          height: TSizes.iconLg * 1.2,
+                          child: Center(
+                            child: Icon(
+                              Iconsax.add,
+                              color: TColors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

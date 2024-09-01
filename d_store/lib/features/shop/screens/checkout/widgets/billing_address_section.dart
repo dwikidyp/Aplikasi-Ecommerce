@@ -20,7 +20,7 @@ class TBillingAddressSection extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.phone, color: Colors.grey, size: 16),
-            SizedBox(width: TSizes.spaceBtwItems),
+            const SizedBox(width: TSizes.spaceBtwItems),
             Text('+628 1234 5678 901',
                 style: Theme.of(context).textTheme.bodyMedium),
           ],
