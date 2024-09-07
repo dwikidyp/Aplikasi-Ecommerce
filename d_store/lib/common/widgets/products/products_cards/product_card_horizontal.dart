@@ -1,4 +1,3 @@
-import 'package:d_store/common/styles/shadows.dart';
 import 'package:d_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:d_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:d_store/common/widgets/images/t_rounded_image.dart';
@@ -22,9 +21,8 @@ class TProductCardHorizontal extends StatelessWidget {
       width: 310,
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
-          boxShadow: [TShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? TColors.darkerGrey : TColors.white),
+          color: dark ? TColors.darkerGrey : TColors.softGrey),
       child: Row(
         children: [
           /// Thumbnail
@@ -76,7 +74,7 @@ class TProductCardHorizontal extends StatelessWidget {
           SizedBox(
             width: 172,
             child: Padding(
-              padding: EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
+              padding: const EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
               child: Column(
                 children: [
                   const Column(
@@ -90,9 +88,11 @@ class TProductCardHorizontal extends StatelessWidget {
                       TBrandTitleWithVerifiedIcon(title: 'Nike'),
                     ],
                   ),
+                  const Spacer(),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const TProductPriceText(price: ' 4000'),
+                      const Flexible(child: TProductPriceText(price: ' 4000')),
 
                       /// Add to cart button
                       Container(
