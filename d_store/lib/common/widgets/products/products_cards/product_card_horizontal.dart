@@ -81,7 +81,7 @@ class TProductCardHorizontal extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TProductTitleText(
-                        title: 'Title Product',
+                        title: 'Iphone 15 Pro Maxxxx',
                         smallSize: true,
                       ),
                       SizedBox(height: TSizes.spaceBtwItems / 2),

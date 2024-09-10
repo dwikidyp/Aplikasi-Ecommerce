@@ -25,10 +25,10 @@ class TBillingAddressSection extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
-        SizedBox(height: TSizes.spaceBtwItems / 2),
+        const SizedBox(height: TSizes.spaceBtwItems / 2),
         Row(
           children: [
-            Icon(Icons.location_history, color: Colors.grey, size: 16),
+            const Icon(Icons.location_history, color: Colors.grey, size: 16),
             SizedBox(width: TSizes.spaceBtwItems),
             Expanded(
               child: Text(
