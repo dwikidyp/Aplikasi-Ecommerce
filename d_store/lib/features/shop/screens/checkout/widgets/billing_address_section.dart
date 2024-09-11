@@ -29,7 +29,7 @@ class TBillingAddressSection extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.location_history, color: Colors.grey, size: 16),
-            SizedBox(width: TSizes.spaceBtwItems),
+            const SizedBox(width: TSizes.spaceBtwItems),
             Expanded(
               child: Text(
                 'Tangerang, banten, Indonesia',
