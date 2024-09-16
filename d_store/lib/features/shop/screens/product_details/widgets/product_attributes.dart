@@ -37,7 +37,7 @@ class TProductAttributes extends StatelessWidget {
                               title: 'Harga : ', smallSize: true),
 
                           /// Actual Price
-                          Text('\RP5.000',
+                          Text('RP5.000',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall!

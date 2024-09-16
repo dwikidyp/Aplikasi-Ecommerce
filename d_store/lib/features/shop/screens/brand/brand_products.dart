@@ -1,22 +1,30 @@
 import 'package:d_store/common/widgets/appbar/appbar.dart';
+import 'package:d_store/common/widgets/brand/brand_card.dart';
 import 'package:d_store/common/widgets/products/sortable/sortable_products.dart';
 import 'package:d_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class AllProducts extends StatelessWidget {
-  const AllProducts({super.key});
+class BrandProducts extends StatelessWidget {
+  const BrandProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: TAppBar(
-        title: Text('Popular Products'),
-        showBackArrow: true,
+        title: Text('Nike'),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: TSortableProducts(),
+          child: Column(
+            children: [
+              /// Brand Detail
+              TBrandCard(showBorder: true),
+              SizedBox(height: TSizes.spaceBtwSections),
+
+              TSortableProducts(),
+            ],
+          ),
         ),
       ),
     );

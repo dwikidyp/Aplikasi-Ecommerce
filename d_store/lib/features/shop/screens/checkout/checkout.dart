@@ -78,7 +78,7 @@ class CheckoutScreen extends StatelessWidget {
                 subTitle: 'Your item Will be shipped soon',
                 onPressed: () => Get.offAll((const NavigationMenu())),
               )),
-          child: const Text('Checkout \RP 2000'),
+          child: const Text('Checkout RP 2000'),
         ),
       ),
     );
